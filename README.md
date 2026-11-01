@@ -11,7 +11,7 @@
 | Студент | Кислов К. Е., группа 4616 |
 | Логин GitHub | [knaT43-T](https://github.com/knaT43-T) |
 | Платформа | GitHub |
-| Сайт | GitHub Pages (ссылка добавляется после публикации) |
+| Сайт | [GitHub Pages](https://knat43-t.github.io/greenglow-lr5/) |
 
 ## О проекте
 
@@ -56,9 +56,18 @@ python -m http.server 8000
 
 Сайт публикуется через GitHub Pages из ветки `main`, папка — корень репозитория.
 
+**Рабочий адрес:** https://knat43-t.github.io/greenglow-lr5/
+
+Параметры публикации и проверка сборки описаны в [docs/github_pages.md](docs/github_pages.md).
+
 ## Материалы отчёта
 
 - [REPORT_CONTENT.md](REPORT_CONTENT.md) — текст отчёта для переноса в Word;
 - [SCREENSHOT_CHECKLIST.md](SCREENSHOT_CHECKLIST.md) — список скриншотов;
 - [VERIFICATION.md](VERIFICATION.md) — проверка выполнения критериев;
-- [docs/](docs/) — лог выполнения, описание веток, форка, изображений и публикации.
+- [docs/report_materials.md](docs/report_materials.md) — карта скриншотов и подписей;
+- [docs/execution_log.md](docs/execution_log.md) — лог выполнения;
+- [docs/branch_description.md](docs/branch_description.md) — описание ветвей;
+- [docs/fork.md](docs/fork.md) — форк внешнего репозитория;
+- [docs/images.md](docs/images.md) — локальные изображения;
+- [docs/github_pages.md](docs/github_pages.md) — публикация через GitHub Pages.

@@ -61,8 +61,8 @@ https://github.com/knaT43-T/greenglow-lr5/branches
 
 Скриншоты:
 
-- `report_screens/04_repo_branches.png` — список ветвей на GitHub;
-- `report_screens/05_branch_feature_add_images.png` — ветка `feature/add-images`;
-- `report_screens/06_branch_fix_remove_emoji.png` — ветка `fix/remove-emoji`;
+- `report_screens/03_repo_branches.png` — список ветвей на GitHub;
+- `report_screens/04_branch_feature_add_images.png` — ветка `feature/add-images`;
+- `report_screens/05_branch_fix_remove_emoji.png` — ветка `fix/remove-emoji`;
 - `report_screens/fix_remove_emoji_hero.png` — вариант сайта без эмодзи;
 - `report_screens/fix_remove_emoji_benefits.png` — блок преимуществ без эмодзи.

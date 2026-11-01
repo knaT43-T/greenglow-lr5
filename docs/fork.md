@@ -56,7 +56,7 @@ gh api repos/knaT43-T/pytorch --jq '{fork: .fork, parent: .parent.full_name, sou
 
 Для отчёта используется скриншот страницы форка:
 
-- `report_screens/07_fork_pytorch.png` — страница `https://github.com/knaT43-T/pytorch` с пометкой «forked from pytorch/pytorch».
+- `report_screens/06_fork_pytorch.png` — страница `https://github.com/knaT43-T/pytorch` с пометкой «forked from pytorch/pytorch».
 
 ## Примечание
 

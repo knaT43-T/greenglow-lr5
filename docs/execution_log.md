@@ -47,7 +47,7 @@
 7. Созданы `README.md` и `.gitignore`.
 8. Создана служебная папка `docs/`.
 
-**Проверка:** локальный скриншот `report_screens/local_before_full.png` (Edge headless, 1440×3000) — сайт корректно отображается, сетка каталога не сломана.
+**Проверка:** локальные скриншоты `report_screens/before_hero.png`, `before_full.png` (Edge headless, 1440×5640), `before_mobile.png` (390×844) — сайт корректно отображается, сетка каталога не сломана, горизонтальной прокрутки нет.
 
 ---
 
@@ -136,6 +136,7 @@
    - URL: https://github.com/knaT43-T/greenglow-lr5/pull/1
    - Заголовок: «Add three images to GreenGlow catalog»
    - База: `main`, источник: `feature/add-images`
+   - Текст описания сохранён в `docs/pr_body.md`
 3. Выполнено слияние через GitHub CLI:
    ```bash
    gh pr merge 1 --merge
@@ -178,16 +179,100 @@
 
 ## Шаг 7. GitHub Pages
 
-*(раздел заполняется по мере выполнения)*
+1. Проверено, что GitHub Pages ещё не включён:
+   ```bash
+   gh api repos/knaT43-T/greenglow-lr5/pages
+   ```
+   Ответ: `HTTP 404 Not Found`.
+2. Публикация включена через GitHub API:
+   ```powershell
+   '{"source":{"branch":"main","path":"/"}}' | Out-File -Encoding ascii source_materials\pages.json
+   gh api -X POST repos/knaT43-T/greenglow-lr5/pages --input source_materials/pages.json
+   ```
+   Ответ API: `html_url = https://knat43-t.github.io/greenglow-lr5/`, `build_type = legacy`, `source.branch = main`, `source.path = /`, `https_enforced = true`, `public = true`.
+3. Первый запрос к сайту вернул HTTP 404: сборка ещё шла. Через несколько минут сборка завершилась.
+4. Проверка сборки:
+   ```bash
+   gh api repos/knaT43-T/greenglow-lr5/pages/builds/latest `
+     --jq '{status,created_at,updated_at,commit,url}'
+   ```
+   Результат: `status = built`, сборка создана `2026-11-01T12:00:39Z`, завершена `2026-11-01T12:01:27Z`, коммит `8753b68`.
+5. Проверка сайта:
+   ```powershell
+   curl.exe -L --max-time 30 -A "Mozilla/5.0" `
+     -o NUL -w "HTTP %{http_code} size %{size_download}`n" `
+     "https://knat43-t.github.io/greenglow-lr5/"
+   ```
+   Результат: `HTTP 200 size 51896`.
+6. Сайт открыт в headless-браузере Edge. Заголовок — «GreenGlow — красота, созданная природой», все три изображения загружены (`naturalWidth = 1200`), на мобильном `scrollWidth = clientWidth = 390`.
+7. Сборка прошла в workflow `pages-build-deployment` (run #1, 56 секунд): jobs `build` (23 с), `report-build-status` (3 с), `deploy` (21 с). Адрес деплоя: `https://knat43-t.github.io/greenglow-lr5/`.
+8. Сняты скриншоты:
+   - `report_screens/11_github_actions.png` — успешный workflow;
+   - `report_screens/12_pages_build_run.png` — детали run и адрес сайта;
+   - `report_screens/09_pages_site.png` — опубликованный сайт, десктоп;
+   - `report_screens/09_pages_site_full.png` — опубликованный сайт целиком;
+   - `report_screens/10_pages_site_mobile.png` — мобильная версия.
+9. Подробное описание публикации — в `docs/github_pages.md`. Страница `Settings → Pages` требует авторизации, поэтому её скриншот не снимался; настройка подтверждена API и успешным run. Инструкция для ручного скриншота — в `SCREENSHOT_CHECKLIST.md`.
 
 ---
 
 ## Шаг 8. Отчётные материалы и скриншоты
 
-*(раздел заполняется по мере выполнения)*
+1. Сняты скриншоты публичных страниц GitHub через Playwright и Microsoft Edge (viewport 1440×900):
+   - `01_github_profile.png` — профиль `knaT43-T`;
+   - `02_repo_main.png` — главная страница репозитория;
+   - `03_repo_branches.png` — список из трёх ветвей;
+   - `04_branch_feature_add_images.png` — ветвь `feature/add-images`;
+   - `05_branch_fix_remove_emoji.png` — ветвь `fix/remove-emoji`;
+   - `06_fork_pytorch.png` — форк `pytorch`;
+   - `07_pull_request_1.png` — PR #1 со статусом `Merged`;
+   - `08_commits_main.png` — история коммитов `main`.
+2. Сняты скриншоты сайта «до» и «после»:
+   - `before_hero.png`, `before_full.png`, `before_mobile.png`, `before_mobile_full.png`;
+   - `after_hero.png`, `after_full.png`, `after_catalog.png`, `after_catalog_grid.png`, `after_mobile.png`, `after_mobile_full.png`.
+3. Сняты скриншоты альтернативной ветви:
+   - `fix_remove_emoji_hero.png`;
+   - `fix_remove_emoji_full.png`;
+   - `fix_remove_emoji_benefits.png`.
+4. Созданы документы:
+   - `docs/github_pages.md` — публикация, настройки, сборка, проверки;
+   - `docs/report_materials.md` — карта скриншотов и подписей;
+   - `REPORT_CONTENT.md` — готовый текст отчёта;
+   - `SCREENSHOT_CHECKLIST.md` — чек-лист скриншотов;
+   - `VERIFICATION.md` — итоговая проверка требований.
+5. Обновлены `README.md` (ссылка на сайт и материалы отчёта), `docs/execution_log.md`, `docs/agent_changes.md`, `docs/branch_description.md`.
+6. Проверено соответствие подписей рисунков и файлов: рисунки 1–20 в `REPORT_CONTENT.md` совпадают с таблицей в `docs/report_materials.md` и `SCREENSHOT_CHECKLIST.md`.
 
 ---
 
 ## Шаг 9. Итоговая проверка
 
-*(раздел заполняется по мере выполнения)*
+1. Проверено состояние Git:
+   ```bash
+   git status --short
+   git branch -a
+   git remote -v
+   git log --oneline --graph --all --decorate
+   ```
+   Рабочая папка чистая, три локальные ветви и три ветви на `origin`, `origin` указывает на `https://github.com/knaT43-T/greenglow-lr5.git`.
+2. Проверено слияние:
+   ```bash
+   git merge-base --is-ancestor feature/add-images main
+   ```
+   Код возврата `0` — ветвь слита.
+   ```bash
+   git merge-base --is-ancestor fix/remove-emoji main
+   ```
+   Код возврата `1` — ветвь не слита, оставлена как альтернативная.
+3. Проверены GitHub API:
+   - репозиторий публичный (`isPrivate: false`), ветка по умолчанию `main`;
+   - `/branches` возвращает `feature/add-images`, `fix/remove-emoji`, `main`;
+   - PR #1 в состоянии `MERGED`, merge commit `9c7655f`;
+   - форк `knaT43-T/pytorch` имеет `fork: true`, parent `pytorch/pytorch`;
+   - GitHub Pages: `status: built`, `source: main /`, `https_enforced: true`.
+4. Проверены изображения: три файла JPEG 1200×900 в `assets/img`, все используются в HTML через относительные пути, внешних ссылок нет.
+5. Проверен HTML: 6 секций + шапка + подвал (8 блоков), 3 `<img>`, 0 `<script>`, 0 внешних ссылок, 5 медиазапросов, UTF-8, `lang="ru"`, viewport.
+6. Проверен опубликованный сайт: HTTP 200, заголовок корректный, изображения загружаются, мобильная версия без горизонтальной прокрутки.
+7. Проверена кодировка текстовых файлов: UTF-8, ошибок декодирования нет.
+8. Блокеров нет, `BLOCKERS.md` не создавался. Единственное ограничение — скриншот `Settings → Pages` требует ручной авторизации; он не обязателен, факт публикации подтверждён API, run и сайтом.
+9. Итоговая проверка зафиксирована в `VERIFICATION.md`. После финального коммита рабочая папка чистая, `main` синхронизирована с `origin/main`.
