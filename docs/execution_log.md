@@ -122,7 +122,7 @@
    git commit -m "Add three local images to GreenGlow catalog via AI agent"
    git push -u origin feature/add-images
    ```
-   Хеш коммита: *(указывается после выполнения)*.
+   Хеш коммита: `a5a936e`.
 
 ---
 
