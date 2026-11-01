@@ -4,7 +4,7 @@
 **Дисциплина:** Информатика  
 **Студент:** Кислов К. Е., группа 4616  
 **Логин GitHub:** knaT43-T  
-**Дата выполнения:** 31.10.2026  
+**Дата выполнения:** 31.10.2026 — 01.11.2026  
 **Рабочая папка:** `C:\Users\Kira\Downloads\project`
 
 ---
@@ -53,13 +53,37 @@
 
 ## Шаг 2. Инициализация Git и публикация на GitHub
 
-*(раздел заполняется по мере выполнения)*
+1. В корне рабочей папки выполнена инициализация репозитория:
+   ```bash
+   git init
+   git branch -M main
+   ```
+2. В первый коммит включены сайт, README, `.gitignore`, служебная папка `docs/` и скриншоты состояния «до». Изображения `assets/img/photo*.jpg` намеренно оставлены вне первого коммита — они добавляются в ветке `feature/add-images`, чтобы изменение было видно в истории.
+3. Первый коммит:
+   ```bash
+   git commit -m "Initial commit: restore GreenGlow landing from LR4"
+   ```
+   Хеш: `c16204f` (после очистки дубликатов скриншотов).
+4. Публичный репозиторий создан через GitHub CLI и связан с рабочей папкой:
+   ```bash
+   gh repo create greenglow-lr5 --public --source=. --remote=origin --push
+   ```
+5. **URL репозитория:** https://github.com/knaT43-T/greenglow-lr5
+6. Проверка: `git remote -v` — `origin` указывает на `https://github.com/knaT43-T/greenglow-lr5.git`; ветка `main` отслеживает `origin/main`.
 
 ---
 
 ## Шаг 3. Форк внешнего репозитория
 
-*(раздел заполняется по мере выполнения)*
+1. Проверена авторизация GitHub CLI: `gh auth status` — активный аккаунт `knaT43-T`, scopes включают `repo`.
+2. Проверено, что форка `knaT43-T/pytorch` ещё нет.
+3. Выполнен форк внешнего проекта:
+   ```bash
+   gh repo fork pytorch/pytorch --clone=false
+   ```
+4. **URL форка:** https://github.com/knaT43-T/pytorch
+5. Проверка через API: `isFork = true`, исходный репозиторий — `pytorch/pytorch`.
+6. Подробное описание — в `docs/fork.md`.
 
 ---
 
