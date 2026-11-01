@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GreenGlow — натуральная косметика, созданная природой. Уход за кожей и телом без компромиссов: честный состав, эко-упаковка, cruelty-free.">
+  <meta name="theme-color" content="#F9F6F0">
+  <title>GreenGlow — красота, созданная природой</title>
+  <style>
+    :root {
+      --cream: #F9F6F0;
+      --sage: #8A9A86;
+      --forest: #2C3E2D;
+      --white: #FFFFFF;
+      --sage-light: #E7ECE4;
+      --sage-soft: #F0F3EE;
+      --line: rgba(44, 62, 45, 0.14);
+      --muted: #66705F;
+      --shadow: 0 18px 45px rgba(44, 62, 45, 0.10);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --container: 1180px;
+      --font: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--forest);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    h1, h2, h3, h4, p {
+      margin-top: 0;
+    }
+
+    section {
+      scroll-margin-top: 96px;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .section-title {
+      margin-bottom: 16px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+
+    .section-lead {
+      max-width: 620px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 13px 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn--primary {
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .btn--primary:hover {
+      background: #1f2f20;
+    }
+
+    .btn--ghost {
+      color: var(--forest);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .btn--ghost:hover {
+      background: var(--white);
+      border-color: var(--sage);
+    }
+
+    .btn--card {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 18px;
+      color: var(--forest);
+      background: var(--sage-soft);
+      border-color: transparent;
+    }
+
+    .btn--card:hover {
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 1000;
+      padding: 12px 18px;
+      color: var(--white);
+      background: var(--forest);
+      border-radius: 8px;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .announcement {
+      padding: 8px 16px;
+      color: rgba(255, 255, 255, 0.88);
+      background: var(--forest);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .announcement span {
+      color: var(--white);
+      font-weight: 650;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249, 246, 240, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 74px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(138, 154, 134, 0.42);
+      border-radius: 50%;
+      background: var(--white);
+      font-size: 18px;
+    }
+
+    .logo small {
+      display: block;
+      margin-top: -3px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 6px 0;
+      color: #465343;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: var(--sage);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--forest);
+    }
+
+    .main-nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .cart-count {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      color: var(--white);
+      background: var(--sage);
+      border-radius: 50%;
+      font-size: 11px;
+    }
+
+    .menu-toggle {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button span::before,
+    .menu-button span::after {
+      display: block;
+      width: 17px;
+      height: 1.5px;
+      background: var(--forest);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-button span {
+      position: relative;
+    }
+
+    .menu-button span::before,
+    .menu-button span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .menu-button span::before {
+      top: -6px;
+    }
+
+    .menu-button span::after {
+      top: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(54px, 8vw, 96px) 0 clamp(60px, 8vw, 100px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -160px;
+      right: -180px;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(138, 154, 134, 0.20), rgba(138, 154, 134, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: center;
+      gap: clamp(36px, 6vw, 76px);
+    }
+
+    .hero h1 {
+      max-width: 640px;
+      margin-bottom: 22px;
+      font-size: clamp(44px, 6.4vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 650;
+    }
+
+    .hero h1 em {
+      position: relative;
+      color: var(--sage);
+      font-style: normal;
+      white-space: nowrap;
+    }
+
+    .hero h1 em::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 8px;
+      background: rgba(138, 154, 134, 0.22);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .hero-lead {
+      max-width: 520px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.8vw, 18px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 38px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 510px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      border: 1px solid rgba(138, 154, 134, 0.34);
+      border-radius: 50%;
+    }
+
+    .hero-orbit--one {
+      width: 430px;
+      height: 430px;
+    }
+
+    .hero-orbit--two {
+      width: 330px;
+      height: 330px;
+      border-style: dashed;
+      opacity: 0.7;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      width: min(330px, 84%);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .hero-card__top,
+    .hero-card__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-card__bottom {
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      letter-spacing: 0.02em;
+      text-transform: none;
+      font-size: 12px;
+    }
+
+    .hero-card__bottom strong {
+      color: var(--forest);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .hero-jar {
+      position: relative;
+      width: 150px;
+      height: 200px;
+      margin: 34px auto 26px;
+    }
+
+    .hero-jar__lid {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 112px;
+      height: 30px;
+      border-radius: 8px 8px 3px 3px;
+      background: linear-gradient(180deg, #9EAC99, #7F907A);
+      transform: translateX(-50%);
+      box-shadow: inset 0 3px 5px rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-jar__body {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 174px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(44, 62, 45, 0.12);
+      border-radius: 20px 20px 26px 26px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(231, 236, 228, 0.68)),
+        var(--sage-soft);
+      box-shadow: inset 8px 0 16px rgba(255, 255, 255, 0.7), 0 16px 26px rgba(44, 62, 45, 0.10);
+      overflow: hidden;
+    }
+
+    .hero-jar__body::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      bottom: 18px;
+      left: 16px;
+      width: 7px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .hero-jar__body span {
+      font-size: 23px;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-jar__body small {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .hero-note {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      padding: 12px 16px;
+      color: var(--forest);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(44, 62, 45, 0.08);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-note small {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-note--top {
+      top: 56px;
+      right: 0;
+    }
+
+    .hero-note--bottom {
+      bottom: 64px;
+      left: 0;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* Values strip */
+    .values-strip {
+      padding: 18px 0;
+      color: var(--white);
+      background: var(--sage);
+      overflow: hidden;
+    }
+
+    .values-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px 30px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .values-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .values-track span::after {
+      content: "✿";
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 10px;
+    }
+
+    .values-track span:last-child::after {
+      display: none;
+    }
+
+    /* About */
+    .about {
+      padding: clamp(64px, 9vw, 108px) 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(36px, 7vw, 90px);
+      align-items: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-copy p strong {
+      color: var(--forest);
+      font-weight: 650;
+    }
+
+    .about-principles {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .about-principle {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 15px 17px;
+      background: var(--cream);
+      border: 1px solid rgba(44, 62, 45, 0.06);
+      border-radius: var(--radius-sm);
+    }
+
+    .about-principle b {
+      flex: 0 0 auto;
+      color: var(--sage);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .about-principle span {
+      font-size: 14px;
+    }
+
+    .about-quote {
+      position: relative;
+      padding: clamp(28px, 4vw, 44px);
+      color: var(--white);
+      background: var(--forest);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .about-quote::before {
+      content: "“";
+      position: absolute;
+      top: -28px;
+      right: 24px;
+      color: rgba(255, 255, 255, 0.10);
+      font-family: Georgia, serif;
+      font-size: 220px;
+      line-height: 1;
+    }
+
+    .about-quote p {
+      position: relative;
+      margin-bottom: 26px;
+      font-size: clamp(21px, 2.6vw, 28px);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .about-quote footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+    }
+
+    .about-quote footer::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .about-signature {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Benefits */
+    .benefits {
+      padding: clamp(64px, 9vw, 104px) 0;
+    }
+
+    .benefits-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 36px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-card {
+      position: relative;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid rgba(44, 62, 45, 0.07);
+      border-radius: var(--radius-md);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-icon {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 24px;
+      background: var(--sage-soft);
+      border-radius: 50%;
+      font-size: 24px;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
+
+    .benefit-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .benefit-number {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      color: rgba(44, 62, 45, 0.18);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    /* Catalog */
+    .catalog {
+      padding: clamp(64px, 9vw, 108px) 0;
+      background: var(--white);
+    }
+
+    .catalog-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 38px;
+    }
+
+    .catalog-note {
+      max-width: 280px;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--cream);
+      border: 1px solid rgba(44, 62, 45, 0.07);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-img {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 3;
+      padding: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.9), transparent 34%),
+        linear-gradient(145deg, #E9EEE5, #D7E0D2);
+      text-align: center;
+    }
+
+    .product-img::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -58px;
+      width: 170px;
+      height: 170px;
+      border: 1px solid rgba(44, 62, 45, 0.10);
+      border-radius: 50%;
+    }
+
+    .product-img--warm {
+      background:
+        radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.9), transparent 34%),
+        linear-gradient(145deg, #F3EDE2, #E7DCCB);
+    }
+
+    .product-img--rose {
+      background:
+        radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.9), transparent 34%),
+        linear-gradient(145deg, #F1E8E4, #E4D5CF);
+    }
+
+    .product-img--sand {
+      background:
+        radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.9), transparent 34%),
+        linear-gradient(145deg, #F1EBDF, #E4D8C4);
+    }
+
+    .product-placeholder {
+      position: relative;
+      z-index: 1;
+      max-width: 190px;
+      color: var(--forest);
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      opacity: 0.76;
+    }
+
+    .product-placeholder::before {
+      content: "GreenGlow";
+      display: block;
+      margin-bottom: 9px;
+      color: var(--sage);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      padding: 5px 10px;
+      color: var(--white);
+      background: var(--forest);
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .product-badge--sage {
+      background: var(--sage);
+    }
+
+    .product-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .product-category {
+      margin-bottom: 6px;
+      color: var(--sage);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .product-body h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .product-desc {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      margin-bottom: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .product-volume {
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* Reviews */
+    .reviews {
+      padding: clamp(64px, 9vw, 108px) 0;
+    }
+
+    .reviews-head {
+      max-width: 640px;
+      margin-bottom: 38px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .review-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid rgba(44, 62, 45, 0.07);
+      border-radius: var(--radius-md);
+    }
+
+    .review-stars {
+      margin-bottom: 18px;
+      color: var(--sage);
+      font-size: 13px;
+      letter-spacing: 0.22em;
+    }
+
+    .review-text {
+      flex: 1;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-avatar {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      color: var(--forest);
+      background: var(--sage-light);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .review-author b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .review-author span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Contacts */
+    .contacts {
+      padding: clamp(64px, 9vw, 108px) 0;
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: clamp(36px, 7vw, 90px);
+      align-items: start;
+    }
+
+    .contacts .eyebrow {
+      color: #B9C7B4;
+    }
+
+    .contacts .eyebrow::before {
+      background: #B9C7B4;
+    }
+
+    .contacts .section-title {
+      color: var(--white);
+    }
+
+    .contacts .section-lead {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 14px;
+    }
+
+    .contact-row dt {
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-row dd {
+      margin: 0;
+    }
+
+    .contact-row a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .delivery-card {
+      padding: 30px;
+      color: var(--forest);
+      background: var(--cream);
+      border-radius: var(--radius-md);
+    }
+
+    .delivery-card h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .delivery-card > p {
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .delivery-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .delivery-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: 13px;
+    }
+
+    .delivery-list b {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: var(--forest);
+      background: var(--sage-light);
+      border-radius: 50%;
+      font-size: 10px;
+    }
+
+    .delivery-list span {
+      padding-top: 4px;
+      color: var(--muted);
+    }
+
+    .delivery-list strong {
+      color: var(--forest);
+    }
+
+    .delivery-note {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 54px 0 26px;
+      color: rgba(255, 255, 255, 0.7);
+      background: #223024;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+      gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    .footer-brand .logo-mark {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand p {
+      max-width: 280px;
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 14px;
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-col a,
+    .footer-col span {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 13px;
+    }
+
+    .footer-col a {
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 22px;
+      font-size: 11px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      color: rgba(255, 255, 255, 0.82);
+      transition: color 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--white);
+    }
+
+    /* Focus */
+    a:focus-visible,
+    button:focus-visible,
+    .menu-button:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1020px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 440px;
+        max-width: 520px;
+        margin-inline: auto;
+        width: 100%;
+      }
+
+      .about-grid,
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-quote {
+        max-width: 640px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1.4fr 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .main-nav {
+        gap: 18px;
+      }
+
+      .header-cart span:not(.cart-count) {
+        display: none;
+      }
+
+      .catalog-grid,
+      .benefits-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefit-card:last-child,
+      .review-card:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .header-inner {
+        min-height: 66px;
+      }
+
+      .menu-button {
+        display: grid;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: grid;
+        gap: 0;
+        padding: 10px 14px 16px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 16px 26px rgba(44, 62, 45, 0.08);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      }
+
+      .main-nav a {
+        padding: 12px 4px;
+        border-bottom: 1px solid rgba(44, 62, 45, 0.08);
+      }
+
+      .main-nav a:last-child {
+        border-bottom: 0;
+      }
+
+      .main-nav a::after {
+        display: none;
+      }
+
+      .menu-toggle:checked ~ .main-nav {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .menu-toggle:checked + .menu-button span {
+        background: transparent;
+      }
+
+      .menu-toggle:checked + .menu-button span::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      .menu-toggle:checked + .menu-button span::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 11vw, 60px);
+      }
+
+      .hero h1 em {
+        white-space: normal;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .hero-orbit--one {
+        width: 340px;
+        height: 340px;
+      }
+
+      .hero-orbit--two {
+        width: 260px;
+        height: 260px;
+      }
+
+      .hero-note--top {
+        top: 28px;
+        right: 4px;
+      }
+
+      .hero-note--bottom {
+        bottom: 26px;
+        left: 4px;
+      }
+
+      .benefits-head,
+      .catalog-head {
+        display: block;
+      }
+
+      .catalog-note {
+        margin-top: 12px;
+        text-align: left;
+      }
+
+      .catalog-grid,
+      .benefits-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card:last-child,
+      .review-card:last-child {
+        grid-column: auto;
+      }
+
+      .contact-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .hero-stats {
+        gap: 18px;
+      }
+
+      .hero-stat strong {
+        font-size: 21px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .hero-card {
+        width: 88%;
+        padding: 16px;
+      }
+
+      .hero-jar {
+        width: 130px;
+        height: 176px;
+      }
+
+      .hero-jar__body {
+        height: 152px;
+      }
+
+      .hero-note {
+        padding: 9px 12px;
+        font-size: 11px;
+      }
+
+      .hero-note small {
+        font-size: 8px;
+      }
+
+      .hero-note--top {
+        top: 8px;
+      }
+
+      .hero-note--bottom {
+        bottom: 8px;
+      }
+
+      .delivery-card {
+        padding: 22px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <div class="announcement">
+    Бесплатная доставка от 3 000 ₽ <span>·</span> Пробник в подарок к каждому заказу
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="GreenGlow — на главную">
+        <span class="logo-mark" aria-hidden="true">🌿</span>
+        <span>GreenGlow<small>natural care</small></span>
+      </a>
+
+      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Открыть меню">
+      <label class="menu-button" for="menu-toggle" aria-label="Меню">
+        <span aria-hidden="true"></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#about">О бренде</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-cart" href="#catalog" aria-label="Перейти в каталог">
+          <span>Корзина</span>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Натуральная косметика</span>
+          <h1>Красота,<br>созданная <em>природой</em></h1>
+          <p class="hero-lead">Натуральная косметика, которая заботится о тебе и планете. Честные формулы, бережные ритуалы и никакой лишней сложности.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#catalog">Смотреть каталог <span aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#about">Наша философия</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>100%</strong>
+              <span>натуральные компоненты</span>
+            </div>
+            <div class="hero-stat">
+              <strong>0</strong>
+              <span>тестов на животных</span>
+            </div>
+            <div class="hero-stat">
+              <strong>6</strong>
+              <span>бережных продуктов</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-orbit hero-orbit--one"></div>
+          <div class="hero-orbit hero-orbit--two"></div>
+          <div class="hero-card">
+            <div class="hero-card__top">
+              <span>GreenGlow</span>
+              <span>01 / 06</span>
+            </div>
+            <div class="hero-jar">
+              <div class="hero-jar__lid"></div>
+              <div class="hero-jar__body">
+                <span>aloe</span>
+                <small>moisture cream</small>
+              </div>
+            </div>
+            <div class="hero-card__bottom">
+              <span>Увлажняющий крем</span>
+              <strong>1 200 ₽</strong>
+            </div>
+          </div>
+          <div class="hero-note hero-note--top">
+            97%
+            <small>натуральных компонентов</small>
+          </div>
+          <div class="hero-note hero-note--bottom">
+            cruelty-free
+            <small>без тестов на животных</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="values-strip" aria-label="Ценности бренда">
+      <div class="container values-track">
+        <span>Честный состав</span>
+        <span>Перерабатываемая упаковка</span>
+        <span>Без жестокости</span>
+        <span>Сделано в России</span>
+      </div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">О бренде</span>
+          <h2 class="section-title">Красота без компромиссов — для тебя и для планеты</h2>
+          <p><strong>GreenGlow</strong> — это натуральная косметика для ежедневного ухода, созданная на основе растительных масел, экстрактов и минералов. Мы верим, что уход может быть простым, эффективным и этичным.</p>
+          <p>Каждая формула разрабатывается небольшими партиями, без парабенов, силиконов и синтетических красителей. Мы не тестируем продукцию на животных и используем упаковку, которую можно переработать.</p>
+          <div class="about-principles">
+            <div class="about-principle">
+              <b>01</b>
+              <span>Растительные активы и прозрачный состав без «серых» ингредиентов.</span>
+            </div>
+            <div class="about-principle">
+              <b>02</b>
+              <span>Бережное производство и перерабатываемая упаковка из вторичных материалов.</span>
+            </div>
+            <div class="about-principle">
+              <b>03</b>
+              <span>Cruelty-free: продукция никогда не тестируется на животных.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="about-quote">
+          <p>«Мы создаём косметику, которую хочется возвращать на полку — и не хочется прятать в дальний ящик».</p>
+          <footer>Команда GreenGlow</footer>
+          <div class="about-signature">Санкт-Петербург · с 2021 года</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <div class="benefits-head">
+          <div>
+            <span class="eyebrow">Наши преимущества</span>
+            <h2 class="section-title">Три причины выбрать GreenGlow</h2>
+          </div>
+          <p class="section-lead">Мы оставляем только то, что действительно важно: пользу, этику и заботу о ресурсах.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <span class="benefit-number">01</span>
+            <div class="benefit-icon" aria-hidden="true">🌿</div>
+            <h3>100% натуральный состав</h3>
+            <p>Растительные масла, экстракты и минералы. Без парабенов, силиконов и синтетических красителей.</p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">02</span>
+            <div class="benefit-icon" aria-hidden="true">♻️</div>
+            <h3>Эко-упаковка</h3>
+            <p>Стекло, алюминий и перерабатываемый картон. Мы минимизируем пластик и поддерживаем раздельный сбор.</p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">03</span>
+            <div class="benefit-icon" aria-hidden="true">🐇</div>
+            <h3>Cruelty-Free</h3>
+            <p>Ни один продукт GreenGlow не тестируется на животных. Только этичные и безопасные формулы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="catalog-head">
+          <div>
+            <span class="eyebrow">Каталог</span>
+            <h2 class="section-title">Ритуалы для кожи и тела</h2>
+            <p class="section-lead">Шесть продуктов, которые закрывают базовый уход: очищение, тонизирование, увлажнение и защита.</p>
+          </div>
+          <p class="catalog-note">Все средства подходят для ежедневного использования. Состав и объём указаны на упаковке.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="product-card">
+            <div class="product-img">
+              <span class="product-badge">Хит</span>
+              <span class="product-placeholder">Увлажняющий крем с алоэ</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Уход за лицом</span>
+              <h3>Увлажняющий крем с алоэ</h3>
+              <p class="product-desc">Алоэ вера, сквалан и пантенол. Восстанавливает гидробаланс и успокаивает кожу.</p>
+              <div class="product-meta">
+                <span class="product-price">1 200 ₽</span>
+                <span class="product-volume">50 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-img product-img--warm">
+              <span class="product-badge product-badge--sage">Новинка</span>
+              <span class="product-placeholder">Сыворотка с витамином С</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Сыворотки</span>
+              <h3>Сыворотка с витамином С</h3>
+              <p class="product-desc">15% витамин С и феруловая кислота. Выравнивает тон и придаёт сияние.</p>
+              <div class="product-meta">
+                <span class="product-price">1 800 ₽</span>
+                <span class="product-volume">30 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-img product-img--rose">
+              <span class="product-badge">Хит</span>
+              <span class="product-placeholder">Гидрофильное масло</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Очищение</span>
+              <h3>Гидрофильное масло</h3>
+              <p class="product-desc">Масла виноградной косточки и жожоба. Мягко снимает макияж и не оставляет плёнки.</p>
+              <div class="product-meta">
+                <span class="product-price">950 ₽</span>
+                <span class="product-volume">150 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-img product-img--sand">
+              <span class="product-placeholder">Тонер с ромашкой</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Тонизирование</span>
+              <h3>Тонер с ромашкой</h3>
+              <p class="product-desc">Ромашка, гамамелис и алоэ. Освежает, снимает покраснения и подготавливает кожу к уходу.</p>
+              <div class="product-meta">
+                <span class="product-price">800 ₽</span>
+                <span class="product-volume">200 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-img product-img--warm">
+              <span class="product-placeholder">Скраб для тела</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Уход за телом</span>
+              <h3>Скраб для тела</h3>
+              <p class="product-desc">Сахар, кокосовое масло и ваниль. Полирует кожу и оставляет лёгкий тёплый аромат.</p>
+              <div class="product-meta">
+                <span class="product-price">750 ₽</span>
+                <span class="product-volume">250 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-img product-img--rose">
+              <span class="product-placeholder">Бальзам для губ</span>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Мини-формат</span>
+              <h3>Бальзам для губ</h3>
+              <p class="product-desc">Какао-масло, ши и витамин Е. Питает, защищает от сухости и удобно лежит в кармане.</p>
+              <div class="product-meta">
+                <span class="product-price">350 ₽</span>
+                <span class="product-volume">15 мл</span>
+              </div>
+              <button class="btn btn--card" type="button">В корзину</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="reviews-head">
+          <span class="eyebrow">Отзывы</span>
+          <h2 class="section-title">Что говорят наши покупатели</h2>
+          <p class="section-lead">Мы собираем обратную связь после каждого заказа — и учитываем её в новых формулах.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">«Крем с алоэ стал моим ежедневным ритуалом. Кожа не жирная, увлажнение держится весь день, а запах очень деликатный».</p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">АМ</span>
+              <div>
+                <b>Анна М.</b>
+                <span>28 лет · Санкт-Петербург</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">«Сыворотка действительно выровняла тон за месяц. Нравится, что состав прозрачный, а упаковка стеклянная — можно сдать на переработку».</p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">ЕК</span>
+              <div>
+                <b>Екатерина К.</b>
+                <span>32 года · Москва</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">«Гидрофильное масло снимает даже стойкую тушь, но не сушит кожу. Заказ пришёл быстро, с пробником и запиской от команды».</p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">ДС</span>
+              <div>
+                <b>Дарья С.</b>
+                <span>24 года · Казань</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+      <div class="container contacts-grid">
+        <div>
+          <span class="eyebrow">Контакты и доставка</span>
+          <h2 class="section-title">Будем рады знакомству</h2>
+          <p class="section-lead">Ответим на вопросы о составе, поможем подобрать уход и расскажем, как получить заказ.</p>
+
+          <dl class="contact-list">
+            <div class="contact-row">
+              <dt>Адрес</dt>
+              <dd>Санкт-Петербург, ул. Большая Конюшенная, 12</dd>
+            </div>
+            <div class="contact-row">
+              <dt>Телефон</dt>
+              <dd><a href="tel:+78121234567">+7 (812) 123-45-67</a></dd>
+            </div>
+            <div class="contact-row">
+              <dt>Email</dt>
+              <dd><a href="mailto:hello@greenglow.ru">hello@greenglow.ru</a></dd>
+            </div>
+            <div class="contact-row">
+              <dt>Часы работы</dt>
+              <dd>Пн–Пт: 10:00–20:00 · Сб–Вс: 11:00–18:00</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="delivery-card">
+          <h3>Эко-доставка</h3>
+          <p>Бережно упаковываем каждый заказ и компенсируем углеродный след доставки.</p>
+          <ul class="delivery-list">
+            <li>
+              <b>01</b>
+              <span><strong>Санкт-Петербург</strong> — курьером за 1–2 дня, бесплатно от 3 000 ₽.</span>
+            </li>
+            <li>
+              <b>02</b>
+              <span><strong>Россия</strong> — Почтой России и СДЭК за 3–7 дней.</span>
+            </li>
+            <li>
+              <b>03</b>
+              <span><strong>Самовывоз</strong> — из студии на Большой Конюшенной в день заказа.</span>
+            </li>
+          </ul>
+          <p class="delivery-note">Каждый заказ сопровождается пробником и карточкой с инструкцией по уходу.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="#top" aria-label="GreenGlow — на главную">
+            <span class="logo-mark" aria-hidden="true">🌿</span>
+            <span>GreenGlow<small>natural care</small></span>
+          </a>
+          <p>Натуральная косметика для ежедневных ритуалов. Сделано с заботой о коже и планете.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="#about">О бренде</a>
+          <a href="#benefits">Преимущества</a>
+          <a href="#catalog">Каталог</a>
+          <a href="#reviews">Отзывы</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Помощь</h4>
+          <a href="#contacts">Доставка</a>
+          <a href="#contacts">Оплата</a>
+          <a href="#contacts">Возврат</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Связаться</h4>
+          <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+          <a href="mailto:hello@greenglow.ru">hello@greenglow.ru</a>
+          <span>Санкт-Петербург,<br>ул. Большая Конюшенная, 12</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 GreenGlow. Все права защищены.</p>
+        <div class="footer-socials" aria-label="Социальные сети">
+          <a href="#top">Telegram</a>
+          <a href="#top">VK</a>
+          <a href="#top">Pinterest</a>
+        </div>
+        <p>Сделано с заботой о планете</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
