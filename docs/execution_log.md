@@ -89,7 +89,40 @@
 
 ## Шаг 4. Ветка `feature/add-images` и добавление изображений
 
-*(раздел заполняется по мере выполнения)*
+1. От актуальной ветки `main` создана ветка:
+   ```bash
+   git checkout -b feature/add-images
+   ```
+2. Подготовлена папка `assets/img` с тремя локальными изображениями:
+   - `photo1.jpg` — увлажняющий крем с алоэ, 1200×900, JPEG;
+   - `photo2.jpg` — сыворотка с витамином C, 1200×900, JPEG;
+   - `photo3.jpg` — гидрофильное масло, 1200×900, JPEG.
+3. Встроенный сервис генерации изображений вернул ошибку `Access denied by security policy` для всех запросов. В качестве резервного варианта агент создал изображения программно с помощью Python/Pillow. Скрипт сохранён в `docs/tools/make_product_images.py`; изображения имеют единый стиль и палитру сайта.
+4. В `index.html` в первых трёх карточках каталога заменены текстовые заглушки на `<img>` с относительными путями:
+   - `assets/img/photo1.jpg`, alt «Увлажняющий крем с алоэ»;
+   - `assets/img/photo2.jpg`, alt «Сыворотка с витамином С»;
+   - `assets/img/photo3.jpg`, alt «Гидрофильное масло».
+5. Добавлен CSS:
+   ```css
+   .product-img img {
+     position: absolute;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+   }
+   ```
+6. Убраны два декоративных «плавающих» блока в hero-визуале, которые перекрывали подпись товара на карточке; это улучшило читаемость первого экрана.
+7. Сняты скриншоты «после»: `after_hero.png`, `after_full.png`, `after_catalog.png`, `after_catalog_grid.png`, `after_mobile.png`, `after_mobile_full.png`.
+8. Подготовлены `docs/agent_changes.md`, `docs/images.md`, `docs/before_after.md`.
+9. Изменения закоммичены и ветка отправлена на GitHub:
+   ```bash
+   git add .
+   git commit -m "Add three local images to GreenGlow catalog via AI agent"
+   git push -u origin feature/add-images
+   ```
+   Хеш коммита: *(указывается после выполнения)*.
 
 ---
 
