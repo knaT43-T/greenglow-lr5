@@ -227,6 +227,26 @@
       font-size: 18px;
     }
 
+    .leaf-mark {
+      position: relative;
+      width: 13px;
+      height: 19px;
+      background: var(--sage);
+      border-radius: 100% 0 100% 0;
+      transform: rotate(-42deg);
+    }
+
+    .leaf-mark::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 50%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.55);
+      transform: translateX(-50%);
+    }
+
     .logo small {
       display: block;
       margin-top: -3px;
@@ -605,9 +625,12 @@
     }
 
     .values-track span::after {
-      content: "✿";
-      color: rgba(255, 255, 255, 0.66);
-      font-size: 10px;
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
     }
 
     .values-track span:last-child::after {
@@ -760,6 +783,14 @@
       background: var(--sage-soft);
       border-radius: 50%;
       font-size: 24px;
+    }
+
+    .benefit-icon--text {
+      color: var(--forest);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .benefit-card h3 {
@@ -1507,7 +1538,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#top" aria-label="GreenGlow — на главную">
-        <span class="logo-mark" aria-hidden="true">🌿</span>
+        <span class="logo-mark" aria-hidden="true"><span class="leaf-mark"></span></span>
         <span>GreenGlow<small>natural care</small></span>
       </a>
 
@@ -1637,21 +1668,21 @@
         <div class="benefits-grid">
           <article class="benefit-card">
             <span class="benefit-number">01</span>
-            <div class="benefit-icon" aria-hidden="true">🌿</div>
+            <div class="benefit-icon benefit-icon--text" aria-hidden="true">100%</div>
             <h3>100% натуральный состав</h3>
             <p>Растительные масла, экстракты и минералы. Без парабенов, силиконов и синтетических красителей.</p>
           </article>
 
           <article class="benefit-card">
             <span class="benefit-number">02</span>
-            <div class="benefit-icon" aria-hidden="true">♻️</div>
+            <div class="benefit-icon benefit-icon--text" aria-hidden="true">ЭКО</div>
             <h3>Эко-упаковка</h3>
             <p>Стекло, алюминий и перерабатываемый картон. Мы минимизируем пластик и поддерживаем раздельный сбор.</p>
           </article>
 
           <article class="benefit-card">
             <span class="benefit-number">03</span>
-            <div class="benefit-icon" aria-hidden="true">🐇</div>
+            <div class="benefit-icon benefit-icon--text" aria-hidden="true">CF</div>
             <h3>Cruelty-Free</h3>
             <p>Ни один продукт GreenGlow не тестируется на животных. Только этичные и безопасные формулы.</p>
           </article>
@@ -1876,7 +1907,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="logo" href="#top" aria-label="GreenGlow — на главную">
-            <span class="logo-mark" aria-hidden="true">🌿</span>
+            <span class="logo-mark" aria-hidden="true"><span class="leaf-mark"></span></span>
             <span>GreenGlow<small>natural care</small></span>
           </a>
           <p>Натуральная косметика для ежедневных ритуалов. Сделано с заботой о коже и планете.</p>
