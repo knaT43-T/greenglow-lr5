@@ -1,0 +1,143 @@
+diff --git a/index.html b/index.html
+index 2a2ae48..a2ba7f6 100644
+--- a/index.html
++++ b/index.html
+@@ -572,39 +572,6 @@
+       text-transform: uppercase;
+     }
+ 
+-    .hero-note {
+-      position: absolute;
+-      z-index: 3;
+-      display: flex;
+-      flex-direction: column;
+-      gap: 1px;
+-      padding: 12px 16px;
+-      color: var(--forest);
+-      background: var(--white);
+-      border: 1px solid var(--line);
+-      border-radius: 14px;
+-      box-shadow: 0 10px 28px rgba(44, 62, 45, 0.08);
+-      font-size: 13px;
+-      font-weight: 700;
+-    }
+-
+-    .hero-note small {
+-      color: var(--muted);
+-      font-size: 9px;
+-      font-weight: 600;
+-      letter-spacing: 0.04em;
+-    }
+-
+-    .hero-note--top {
+-      top: 56px;
+-      right: 0;
+-    }
+-
+-    .hero-note--bottom {
+-      bottom: 64px;
+-      left: 0;
+-    }
+-
+     @keyframes float {
+       0%, 100% { transform: translateY(0); }
+       50% { transform: translateY(-9px); }
+@@ -884,6 +851,15 @@
+       border-radius: 50%;
+     }
+ 
++    .product-img img {
++      position: absolute;
++      inset: 0;
++      width: 100%;
++      height: 100%;
++      object-fit: cover;
++      display: block;
++    }
++
+     .product-img--warm {
+       background:
+         radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.9), transparent 34%),
+@@ -1430,16 +1406,6 @@
+         height: 260px;
+       }
+ 
+-      .hero-note--top {
+-        top: 28px;
+-        right: 4px;
+-      }
+-
+-      .hero-note--bottom {
+-        bottom: 26px;
+-        left: 4px;
+-      }
+-
+       .benefits-head,
+       .catalog-head {
+         display: block;
+@@ -1507,23 +1473,6 @@
+         height: 152px;
+       }
+ 
+-      .hero-note {
+-        padding: 9px 12px;
+-        font-size: 11px;
+-      }
+-
+-      .hero-note small {
+-        font-size: 8px;
+-      }
+-
+-      .hero-note--top {
+-        top: 8px;
+-      }
+-
+-      .hero-note--bottom {
+-        bottom: 8px;
+-      }
+-
+       .delivery-card {
+         padding: 22px;
+       }
+@@ -1631,14 +1580,6 @@
+               <strong>1 200 ₽</strong>
+             </div>
+           </div>
+-          <div class="hero-note hero-note--top">
+-            97%
+-            <small>натуральных компонентов</small>
+-          </div>
+-          <div class="hero-note hero-note--bottom">
+-            cruelty-free
+-            <small>без тестов на животных</small>
+-          </div>
+         </div>
+       </div>
+     </section>
+@@ -1733,7 +1674,7 @@
+           <article class="product-card">
+             <div class="product-img">
+               <span class="product-badge">Хит</span>
+-              <span class="product-placeholder">Увлажняющий крем с алоэ</span>
++              <img src="assets/img/photo1.jpg" alt="Увлажняющий крем с алоэ" width="1200" height="900" loading="lazy" decoding="async">
+             </div>
+             <div class="product-body">
+               <span class="product-category">Уход за лицом</span>
+@@ -1750,7 +1691,7 @@
+           <article class="product-card">
+             <div class="product-img product-img--warm">
+               <span class="product-badge product-badge--sage">Новинка</span>
+-              <span class="product-placeholder">Сыворотка с витамином С</span>
++              <img src="assets/img/photo2.jpg" alt="Сыворотка с витамином С" width="1200" height="900" loading="lazy" decoding="async">
+             </div>
+             <div class="product-body">
+               <span class="product-category">Сыворотки</span>
+@@ -1767,7 +1708,7 @@
+           <article class="product-card">
+             <div class="product-img product-img--rose">
+               <span class="product-badge">Хит</span>
+-              <span class="product-placeholder">Гидрофильное масло</span>
++              <img src="assets/img/photo3.jpg" alt="Гидрофильное масло" width="1200" height="900" loading="lazy" decoding="async">
+             </div>
+             <div class="product-body">
+               <span class="product-category">Очищение</span>
