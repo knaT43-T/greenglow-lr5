@@ -128,13 +128,51 @@
 
 ## Шаг 5. Pull Request и слияние с `main`
 
-*(раздел заполняется по мере выполнения)*
+1. Ветка `feature/add-images` отправлена на GitHub:
+   ```bash
+   git push -u origin feature/add-images
+   ```
+2. Создан Pull Request №1:
+   - URL: https://github.com/knaT43-T/greenglow-lr5/pull/1
+   - Заголовок: «Add three images to GreenGlow catalog»
+   - База: `main`, источник: `feature/add-images`
+3. Выполнено слияние через GitHub CLI:
+   ```bash
+   gh pr merge 1 --merge
+   ```
+4. Результат: PR №1 в состоянии `MERGED`, дата слияния `2026-11-01T11:57:47Z`, merge commit `9c7655f`. Ветка `feature/add-images` **не удалена** после слияния.
+5. Локальная `main` обновлена:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+   Обновление прошло fast-forward до `9c7655f`; в `main` появились изображения, документация и скриншоты.
 
 ---
 
 ## Шаг 6. Ветка `fix/remove-emoji`
 
-*(раздел заполняется по мере выполнения)*
+1. От актуальной `main` создана ветка:
+   ```bash
+   git checkout -b fix/remove-emoji
+   ```
+2. Выполнены изменения дизайна:
+   - эмодзи `🌿` в логотипе заменён на CSS-знак листа `.leaf-mark` (в шапке и подвале);
+   - эмодзи `🌿`, `♻️`, `🐇` в блоке преимуществ заменены на строгие текстовые маркеры `100%`, `ЭКО`, `CF`;
+   - декоративный символ `✿` в строке ценностей заменён на нейтральную точку;
+   - добавлены `docs/branch_notes.txt` и `docs/branch_description.md`.
+3. Сняты скриншоты варианта без эмодзи:
+   - `report_screens/fix_remove_emoji_hero.png`;
+   - `report_screens/fix_remove_emoji_full.png`;
+   - `report_screens/fix_remove_emoji_benefits.png`.
+4. Коммит и отправка:
+   ```bash
+   git add index.html docs/branch_notes.txt docs/branch_description.md report_screens/fix_remove_emoji_*.png
+   git commit -m "Remove emoji noise and improve minimal visual style"
+   git push -u origin fix/remove-emoji
+   ```
+   Хеш коммита: `d196168`.
+5. Ветка **не слита** с `main`: она остаётся отдельной альтернативной линией разработки для демонстрации трёх ветвей. Файл `docs/branch_description.md` скопирован в `main` отдельным коммитом, чтобы описание ветвей было доступно в основной ветке.
 
 ---
 
