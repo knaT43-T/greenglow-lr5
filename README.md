@@ -62,7 +62,10 @@ python -m http.server 8000
 
 ## Материалы отчёта
 
-- [REPORT_CONTENT.md](REPORT_CONTENT.md) — текст отчёта для переноса в Word;
+- [Отчет_ЛР5_Кислов.docx](Отчет_ЛР5_Кислов.docx) — готовый отчёт по лабораторной работе;
+- [Отчет_ЛР5_Кислов.pdf](Отчет_ЛР5_Кислов.pdf) — PDF-версия для просмотра;
+- [build_report.py](build_report.py) — генератор отчёта (python-docx);
+- [REPORT_CONTENT.md](REPORT_CONTENT.md) — текст отчёта в Markdown;
 - [SCREENSHOT_CHECKLIST.md](SCREENSHOT_CHECKLIST.md) — список скриншотов;
 - [VERIFICATION.md](VERIFICATION.md) — проверка выполнения критериев;
 - [docs/report_materials.md](docs/report_materials.md) — карта скриншотов и подписей;
